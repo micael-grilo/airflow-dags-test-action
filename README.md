@@ -13,7 +13,7 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
 #### The following example includes optimal defaults for a standard airflow test solution:
 
 - 'requirements-file': And path to your requirements file `requirements.txt`.
-- 'dags-paths': And path to your DAGs directory
+- 'dags-path': And path to your DAGs directory
 - 'dags-test-folder': And path to your tests directory
 - 'var-file': And path to your `var.json` to set your airflow variables, by default uses GitHub secrets.
 
@@ -22,7 +22,7 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
   uses: micael-grilo/airflow-dags-test-action@master
     with:
       requirements-file: project/requirements.txt
-      dags-paths: project/dags
+      dags-path: project/dags
       dags-test-folder: project/tests
       var-file: project/var.json
 ```

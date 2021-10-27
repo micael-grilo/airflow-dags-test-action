@@ -12,5 +12,5 @@ jobs:
         uses: ./
         with:
           requirements-file: project/requirements.txt
-          dags-paths: project/dags
+          dags-path: project/dags
           dags-test-folder: project/tests
