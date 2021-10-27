@@ -15,7 +15,7 @@ if [ ! -z "$SECRETS_CONTEXT" ]; then
     echo $SECRETS_CONTEXT > AIRFLOWVARPATH
     echo "Loaded Airflow Variables from Github secrets!"
 else
-    AIRFLOWVARPATH=${4:'project/var.json'}
+    AIRFLOWVARPATH=$4
     echo "Loaded Airflow Variables from file: $AIRFLOWVARPATH!"
 fi
 
