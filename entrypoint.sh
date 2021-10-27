@@ -1,0 +1,28 @@
+#!/bin/sh
+
+export AIRFLOW_HOME="/github/workspace/$2"
+export PYTHONPATH="${PYTHONPATH}:${AIRFLOW_HOME}"
+
+echo "Start Testing"
+echo "Requirements path : $1"
+echo "DAGs dir : $2"
+echo "Tests dir : /github/workspace/$3"
+echo "Airflow Home : $AIRFLOW_HOME"
+echo "Python : $PYTHONPATH"
+
+if [ ! -z "$SECRETS_CONTEXT" ]; then
+    AIRFLOWVARPATH="$AIRFLOW_HOME/var.json"
+    echo $SECRETS_CONTEXT > AIRFLOWVARPATH
+    echo "Loaded Airflow Variables from Github secrets!"
+else
+    AIRFLOWVARPATH=${4:'project/var.json'}
+    echo "Loaded Airflow Variables from file: $AIRFLOWVARPATH!"
+fi
+
+pip install -r $1
+
+airflow db init > /dev/null
+
+airflow variables import $AIRFLOWVARPATH
+
+pytest "/github/workspace/$3"

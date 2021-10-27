@@ -1,0 +1,38 @@
+name: 'Airflow DAGs Test'
+author: micael-grilo
+description: 'Validate and test DAGs on your workflows.'
+branding:
+  icon: check
+  color: gray-dark
+
+inputs:
+  requirements-file:
+    description: 'Path to requirements file that airflow use to run the DAG files.'
+    required: true
+    default: "requirements.txt"
+  dags-path:
+    description: 'Path to DAGs directory'
+    required: true
+    default: "dags"
+  dags-test-folder:
+    description: 'Path to tests directory'
+    required: true
+    default: ""
+  var-file:
+    description: 'Path to `var.json` to set your airflow variables, by default uses GitHub secrets.'
+    required: false
+    default: ""
+
+outputs:
+  validator-result:
+    description: 'DAGs tests result'
+    value: ${{ steps.run }}
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.requirements-file }}
+    - ${{ inputs.dags-path }}
+    - ${{ inputs.dags-test-folder }}
+    - ${{ inputs.var-file }}
