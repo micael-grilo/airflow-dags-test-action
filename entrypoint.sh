@@ -12,8 +12,8 @@ echo "Python : $PYTHONPATH"
 
 if [ ! -z "$SECRETS_CONTEXT" ]; then
     AIRFLOWVARPATH="$AIRFLOW_HOME/var.json"
-    echo $SECRETS_CONTEXT > AIRFLOWVARPATH
-    echo "Loaded Airflow Variables from Github secrets!"
+    echo $SECRETS_CONTEXT > $AIRFLOWVARPATH
+    echo "Saved Airflow Variables from Github secrets! $AIRFLOWVARPATH"
 else
     AIRFLOWVARPATH=$4
     echo "Loaded Airflow Variables from file: $AIRFLOWVARPATH!"
