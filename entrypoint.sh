@@ -21,8 +21,6 @@ fi
 
 pip install -r $1
 
-airflow db init > /dev/null
-
 airflow variables import $AIRFLOWVARPATH
 
 pytest "/github/workspace/$3"
