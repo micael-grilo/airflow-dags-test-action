@@ -1,6 +1,6 @@
 name: 'Airflow DAGs Test'
 author: micael-grilo
-description: 'Validate and test DAGs on your workflows.'
+description: 'Validate and test Airflow DAGs on your workflows.'
 branding:
   icon: check
   color: gray-dark
