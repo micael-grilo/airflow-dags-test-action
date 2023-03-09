@@ -1,6 +1,6 @@
-FROM python:3.7
+FROM python:3.10
 
-RUN pip install apache-airflow==2.2.2 wtforms==2.3.3 markdown==3.3.4
+RUN pip install apache-airflow==2.4.3
 ADD entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
