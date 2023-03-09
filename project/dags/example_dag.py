@@ -1,7 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
-from airflow.utils.dates import days_ago
 
 from datetime import datetime, timedelta
 
@@ -11,7 +10,7 @@ DAG_ID = "dag_id"
 default_args = {
     "owner": "MG",
     "depends_on_past": False,
-    "start_date": datetime.now().date(),
+    "start_date": datetime.now(),
     "email": ["example@123.com"],
     "email_on_failure": False,
     "email_on_retry": False,
