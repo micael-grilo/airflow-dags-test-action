@@ -2,7 +2,8 @@
 
 Validate and test DAGs, before deploying to production by creating an isolated Airflow on Docker Container with supplied variables and dependencies.
 
-Currently supports Airflow [v2.0.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.0.2), [v2.2.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.2.2), [v2.4.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.4.3), [v2.5.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.5.1), and [v2.6.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.6.3)
+Currently supports Airflow [v2.0.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.0.2), [v2.2.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.2.2), [v2.4.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.4.3), [v2.5.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.5.1),  [v2.6.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.6.3) and [v2.7.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.7.2)
+
 
 ![Main CI/CD Pipeline](https://github.com/micael-grilo/airflow-dags-test-action/workflows/Main%20CI/CD%20Pipeline/badge.svg)
 
@@ -21,7 +22,7 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
 
 ```yml
 - name: 'Test Airflow DAGs'
-  uses: micael-grilo/airflow-dags-test-action@v2.6.3
+  uses: micael-grilo/airflow-dags-test-action@v2.7.2
     with:
       requirements-file: project/requirements.txt
       dags-path: project/dags
