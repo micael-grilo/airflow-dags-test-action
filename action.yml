@@ -30,7 +30,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/micael-grilo/airflow-dags-test-action:v2.8.1'
   args:
     - ${{ inputs.requirements-file }}
     - ${{ inputs.dags-path }}
