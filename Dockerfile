@@ -5,6 +5,6 @@ ADD entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-RUN airflow db init > /dev/null
+RUN airflow db migrate > /dev/null
 
 ENTRYPOINT ["/entrypoint.sh"]
