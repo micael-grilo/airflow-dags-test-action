@@ -25,7 +25,7 @@ inputs:
   error-comment:
     description: 'Comment error message on PR'
     required: false
-    default: "True"
+    default: "False"
   access-token:
     description: 'Repo access token'
     required: true

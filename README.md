@@ -19,7 +19,7 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
 - 'dags-path': Path to your DAGs directory
 - 'dags-test-folder': Path to your tests directory
 - 'var-file': Path to your `var.json` to set your airflow variables, by default uses GitHub secrets.
-- 'error-comment': Boolean flag for whether to output the error message as a comment on the PR. Default is `True`. 
+- 'error-comment': Boolean flag for whether to output the error message as a comment on the PR. Default is `False`. 
 
 ```yml
 - name: 'Test Airflow DAGs'
