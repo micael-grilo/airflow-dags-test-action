@@ -1,5 +1,5 @@
 name: Main CI/CD Pipeline
-on: [push]
+on: pull_request
 env:
   SECRETS_CONTEXT: ${{ toJson(secrets) }}
 jobs:
