@@ -29,9 +29,8 @@ pytest "/github/workspace/$3" -s -q >> result.log
 
 pytest_exit_code=`echo Pytest exited $?`
 echo $pytest_exit_code
-echo "Variable 4: $4"
 
-if [ "$4" = "True" ]; then
+if [ "$4" != "False" ]; then
     echo "Sending output to PR"
     python comment.py --log_filename=result.log --repo_token=$5 
 fi

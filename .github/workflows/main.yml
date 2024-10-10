@@ -3,7 +3,7 @@ on: [push]
 env:
   SECRETS_CONTEXT: ${{ toJson(secrets) }}
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
