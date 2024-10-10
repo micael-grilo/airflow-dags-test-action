@@ -25,4 +25,13 @@ airflow db upgrade > /dev/null
 
 airflow variables import $AIRFLOWVARPATH
 
-pytest "/github/workspace/$3"
+pytest "/github/workspace/$3" -s -q >> result.log
+
+pytest_exit_code=`echo Pytest exited $?`
+echo $pytest_exit_code
+
+if [ $4 == "True" ]; then
+    python comment.py --log_filename=result.log --repo_token=$5 
+fi
+if [ "$pytest_exit_code" != "Pytest exited 0" ]; then echo "Pytest did not exit 0" ;fi
+if [ "$pytest_exit_code" != "Pytest exited 0" ]; then exit 1 ;fi

@@ -15,10 +15,11 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
 
 #### The following example includes optimal defaults for a standard airflow test solution:
 
-- 'requirements-file': And path to your requirements file `requirements.txt`.
-- 'dags-path': And path to your DAGs directory
-- 'dags-test-folder': And path to your tests directory
-- 'var-file': And path to your `var.json` to set your airflow variables, by default uses GitHub secrets.
+- 'requirements-file': Path to your requirements file `requirements.txt`.
+- 'dags-path': Path to your DAGs directory
+- 'dags-test-folder': Path to your tests directory
+- 'var-file': Path to your `var.json` to set your airflow variables, by default uses GitHub secrets.
+- 'error-comment': Boolean flag for whether to output the error message as a comment on the PR. Default is `True`. 
 
 ```yml
 - name: 'Test Airflow DAGs'
@@ -28,6 +29,8 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
       dags-path: project/dags
       dags-test-folder: project/tests
       var-file: project/var.json
+      error-comment: True
+      access-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Contributions
