@@ -7,7 +7,7 @@ echo "Start Testing"
 echo "Requirements path : $1"
 echo "DAGs dir : $2"
 echo "Tests dir : /github/workspace/$3"
-echo "Comment on Error : $4"
+echo "Comment on Error : $5"
 echo "Airflow Home : $AIRFLOW_HOME"
 echo "Python : $PYTHONPATH"
 
@@ -31,8 +31,8 @@ pytest "/github/workspace/$3" -s -q >> result.log
 pytest_exit_code=`echo Pytest exited $?`
 echo $pytest_exit_code
 
-if [ "$4" = "True" ] && [ "$pytest_exit_code" != "Pytest exited 0" ]; then
+if [ "$5" = "True" ] && [ "$pytest_exit_code" != "Pytest exited 0" ]; then
     echo "Pytest did not exit. Sending output to PR"
-    python comment.py --log_filename=result.log --repo_token=$5 
+    python comment.py --log_filename=result.log --repo_token=$6 
 fi
 if [ "$pytest_exit_code" != "Pytest exited 0" ]; then exit 1 ;fi
