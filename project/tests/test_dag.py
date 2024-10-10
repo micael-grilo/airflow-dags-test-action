@@ -16,6 +16,8 @@ class TestDagIntegrity(unittest.TestCase):
             f"DAG import failures. Errors: {self.dagbag.import_errors}",
         )
     
+    def test_alert(self):
+        self.assertFalse(True, "Alert test failed")
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestDagIntegrity)
 unittest.TextTestRunner(verbosity=2).run(suite)
