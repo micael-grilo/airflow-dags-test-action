@@ -15,7 +15,7 @@ class TestDagIntegrity(unittest.TestCase):
             len(self.dagbag.import_errors),
             f"DAG import failures. Errors: {self.dagbag.import_errors}",
         )
-
+    
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestDagIntegrity)
 unittest.TextTestRunner(verbosity=2).run(suite)

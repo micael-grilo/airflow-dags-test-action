@@ -2,7 +2,7 @@
 
 Validate and test DAGs, before deploying to production by creating an isolated Airflow on Docker Container with supplied variables and dependencies.
 
-Currently supports Airflow [v2.0.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.0.2), [v2.2.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.2.2), [v2.4.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.4.3), [v2.5.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.5.1),  [v2.6.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.6.3), [v2.7.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.7.2), [v2.8.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.8.1) and [v2.9.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.9.2)
+Currently supports Airflow [v2.0.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.0.2), [v2.2.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.2.2), [v2.4.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.4.3), [v2.5.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.5.1),  [v2.6.3](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.6.3), [v2.7.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.7.2), [v2.8.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.8.1), [v2.9.2](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.9.2) and [v2.10.1](https://github.com/micael-grilo/airflow-dags-test-action/releases/tag/v2.10.1)
 
 
 ![Main CI/CD Pipeline](https://github.com/micael-grilo/airflow-dags-test-action/workflows/Main%20CI/CD%20Pipeline/badge.svg)
@@ -15,19 +15,22 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
 
 #### The following example includes optimal defaults for a standard airflow test solution:
 
-- 'requirements-file': And path to your requirements file `requirements.txt`.
-- 'dags-path': And path to your DAGs directory
-- 'dags-test-folder': And path to your tests directory
-- 'var-file': And path to your `var.json` to set your airflow variables, by default uses GitHub secrets.
+- 'requirements-file': Path to your requirements file `requirements.txt`.
+- 'dags-path': Path to your DAGs directory
+- 'dags-test-folder': Path to your tests directory
+- 'var-file': Path to your `var.json` to set your airflow variables, by default uses GitHub secrets.
+- 'error-comment': Boolean flag for whether to output the error message as a comment on the PR. Default is `True`. 
 
 ```yml
 - name: 'Test Airflow DAGs'
-  uses: micael-grilo/airflow-dags-test-action@v2.9.2
+  uses: micael-grilo/airflow-dags-test-action@v2.10.1
     with:
       requirements-file: project/requirements.txt
       dags-path: project/dags
       dags-test-folder: project/tests
       var-file: project/var.json
+      error-comment: True
+      access-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Contributions

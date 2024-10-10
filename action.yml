@@ -22,6 +22,13 @@ inputs:
     description: 'Path to `var.json` to set your airflow variables, by default uses GitHub secrets.'
     required: false
     default: ""
+  error-comment:
+    description: 'Comment error message on PR'
+    required: false
+    default: "True"
+  access-token:
+    description: 'Repo access token'
+    required: true
 
 outputs:
   validator-result:
@@ -30,9 +37,11 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/micael-grilo/airflow-dags-test-action:v2.9.2'
+  image: 'docker://ghcr.io/micael-grilo/airflow-dags-test-action:v2.10.1'
   args:
     - ${{ inputs.requirements-file }}
     - ${{ inputs.dags-path }}
     - ${{ inputs.dags-test-folder }}
     - ${{ inputs.var-file }}
+    - ${{ inputs.error-comment }}
+    - ${{ inputs.access-token }}
