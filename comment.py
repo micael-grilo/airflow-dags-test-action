@@ -15,6 +15,7 @@ def comment_pr(repo_token, filename):
         g = Github(repo_token)
         repo = g.get_repo(os.getenv('GITHUB_REPOSITORY'))
         event_payload = open(os.getenv('GITHUB_EVENT_PATH')).read()
+        print(event_payload)
         json_payload =  json.loads(event_payload)
         if json_payload.get('number') is not None:
             pr = repo.get_pull(json_payload.get('number'))
