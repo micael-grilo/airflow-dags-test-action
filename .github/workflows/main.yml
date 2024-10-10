@@ -14,5 +14,5 @@ jobs:
           requirements-file: project/requirements.txt
           dags-path: project/dags
           dags-test-folder: project/tests
-          error-comment: "True"
+          error-comment: 'True'
           access-token: ${{ secrets.GITHUB_TOKEN }}
