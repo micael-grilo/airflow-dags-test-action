@@ -29,6 +29,7 @@ pytest "/github/workspace/$3" -s -q >> result.log
 
 pytest_exit_code=`echo Pytest exited $?`
 echo $pytest_exit_code
+echo "Variable 4: $4"
 
 if [ "$4" = "True" ]; then
     echo "Sending output to PR"
