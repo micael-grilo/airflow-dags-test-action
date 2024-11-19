@@ -26,6 +26,7 @@ airflow db upgrade > /dev/null
 
 airflow variables import $AIRFLOWVARPATH
 
+cp -r /action/* /github/workspace/
 pytest "/github/workspace/$3" -s -q >> result.log
 
 pytest_exit_code=`echo Pytest exited $?`
