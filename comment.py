@@ -18,12 +18,7 @@ def comment_pr(repo_token, filename):
         json_payload =  json.loads(event_payload)
         if json_payload.get('number') is not None:
             pr = repo.get_pull(json_payload.get('number'))
-            pr.create_issue_comment(
-                f"""
-                :x: Test Failed
-                ```{message[-65000:]}```
-                """
-            )
+            pr.create_issue_comment(f":x: Test Failed\n ```{message[-65000:]}``` ")
         else:
             print("PR comment not supported on current event")
     # add this since github actions permission degraded when triggering from forked repo
