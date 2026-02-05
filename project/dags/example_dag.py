@@ -33,10 +33,6 @@ with DAG(
     DAG_ID,
     description="sample dag to test dag",
     default_args=default_args,
-    access_control={
-        "MG": {"can_read", "can_edit"}, 
-        "BI": {"can_read"}
-    },
     schedule=timedelta(days=1),
 ) as dag:
 

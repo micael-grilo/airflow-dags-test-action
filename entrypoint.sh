@@ -22,7 +22,7 @@ fi
 
 pip install -r $1
 
-airflow db upgrade > /dev/null
+airflow db migrate > /dev/null
 
 airflow variables import $AIRFLOWVARPATH
 
