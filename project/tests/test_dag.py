@@ -8,7 +8,7 @@ class TestDagIntegrity(unittest.TestCase):
     def setUp(self):
         DAGS_DIR = os.getenv("AIRFLOW_HOME")
         logging.info(f"DAGs dir : {DAGS_DIR}")
-        self.dagbag = DagBag(dag_folder=DAGS_DIR, include_examples=False)
+        self.dagbag = DagBag(dag_folder=DAGS_DIR)
 
     def test_import_dags(self):
         self.assertFalse(
